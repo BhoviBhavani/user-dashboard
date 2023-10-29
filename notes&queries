@@ -1,0 +1,41 @@
+Run this queries to create database and required tables
+
+CREATE DATABASE userdashboard;
+
+CREATE TABLE userdashboard.users (
+  username VARCHAR(255) PRIMARY KEY NOT NULL,
+  email VARCHAR(255) NOT NULL,
+  password VARCHAR(255) NOT NULL,
+  tel VARCHAR(20),
+  bio TEXT,
+  profile_photo BLOB,
+  last_login DATETIME
+);
+
+CREATE TABLE userdashboard.activity_feed (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(255) NOT NULL,
+    activity_type VARCHAR(255) NOT NULL,
+    timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    content TEXT
+);
+
+CREATE TABLE userdashboard.friends (
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  username VARCHAR(255) NOT NULL,
+  friend_name VARCHAR(255)
+);
+
+
+Make sure you have installed node (I have used node --> v16.20.0)
+
+move to backend directory
+cd user-dashboard/api
+npm install //To install requirements
+node index.js //To run the backend server
+
+move to frontend directory
+cd user-dashboard/ui
+npm install //To install requirements
+npm start //To run the frontend server
+
